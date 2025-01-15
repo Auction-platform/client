@@ -1,0 +1,18 @@
+services:
+  frontend:
+    build:
+      context: ./docker
+    container_name: auction-platform-react
+    user: 1000:1000
+    stdin_open: true
+    tty: true
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+    networks:
+      - auction-platform-network
+
+networks:
+  auction-platform-network:
+    external: true
